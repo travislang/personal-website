@@ -7,12 +7,13 @@ interface Props {
   link: string;
   summary: string;
   summary2: string;
+  class: string;
 }
 
-const { name, description, link, summary, summary2 } = Astro.props;
+const { name, description, link, summary, summary2, class: className, ...rest } = Astro.props;
 ---
 
-<div id="container">
+<div id="container" class={className} {...rest}>
   <div id="rainbow-glow">
   <div id="card">
     <div id="content">
@@ -26,7 +27,9 @@ const { name, description, link, summary, summary2 } = Astro.props;
           <p>{summary}</p>
           <p>{summary2}</p>
         </div>
-        <slot />
+        <div id="image-fade">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
@@ -56,12 +59,6 @@ const { name, description, link, summary, summary2 } = Astro.props;
     font-size: 1.2rem;
     color: #797f87;
     margin: 0;
-  }
-  p {
-    /* font-size: 1.2rem; */
-    /* color: #F5F7FA; */
-    /* margin: 0; */
-    /* text-transform: uppercase; */
   }
   img {
     width: 70%;
@@ -103,6 +100,11 @@ const { name, description, link, summary, summary2 } = Astro.props;
     visibility: visible;
     animation: rainbowGlowRotate 4s linear infinite;
   }
+  .in-view #rainbow-glow::before {
+    visibility: visible;
+    animation: rainbowGlowRotate 4s linear infinite;
+    transition-delay: 0.2s;
+  }
   #card {
     padding:1px;
     position:relative;
@@ -126,6 +128,11 @@ const { name, description, link, summary, summary2 } = Astro.props;
     visibility: visible;
     animation: rainbowRotate 4s linear infinite;
   }
+  .in-view #card::before {
+    visibility: visible;
+    animation: rainbowRotate 4s linear infinite;
+    transition-delay: 0.2s;
+  }
   #content {
     margin: 1px;
     overflow: hidden;
@@ -140,6 +147,22 @@ const { name, description, link, summary, summary2 } = Astro.props;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+  #image-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+  }
+  #image-fade:not(.in-view):hover {
+    padding-top: 50%;
+  }
+  .in-view #image-fade {
+    padding-top: 50%;
+    transition-delay: 0.2s;
   }
 
   @keyframes rainbowRotate {

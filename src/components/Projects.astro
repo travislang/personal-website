@@ -13,8 +13,9 @@ import descriptions from "../descriptions.json";
 
 <section>
   <h4>a curated collection of my work</h4>
-  <div>
+  <div id="cards-container">
     <Card
+      class="card-container"
       name={descriptions.rivalists.title}
       description={descriptions.rivalists.description}
       link={descriptions.rivalists.url}
@@ -26,6 +27,7 @@ import descriptions from "../descriptions.json";
       </ImageFade>
     </Card>
     <Card
+      class="card-container"
       name={descriptions.portfolio.title}
       description={descriptions.portfolio.description}
       link={descriptions.portfolio.url}
@@ -37,6 +39,7 @@ import descriptions from "../descriptions.json";
       </ImageFade>
     </Card>
     <Card
+      class="card-container"
       name={descriptions.ledger.title}
       description={descriptions.ledger.description}
       link={descriptions.ledger.url}
@@ -48,6 +51,7 @@ import descriptions from "../descriptions.json";
       </ImageFade>
     </Card>
     <Card
+      class="card-container"
       name={descriptions.intelliflix.title}
       description={descriptions.intelliflix.description}
       link={descriptions.intelliflix.url}
@@ -59,6 +63,7 @@ import descriptions from "../descriptions.json";
       </ImageFade>
     </Card>
     <Card
+      class="card-container"
       name={descriptions.coindock.title}
       description={descriptions.coindock.description}
       link={descriptions.coindock.url}
@@ -70,6 +75,7 @@ import descriptions from "../descriptions.json";
       </ImageFade>
     </Card>
     <Card
+      class="card-container"
       name={descriptions.fn.title}
       description={descriptions.fn.description}
       link={descriptions.fn.url}
@@ -91,11 +97,11 @@ import descriptions from "../descriptions.json";
   h4 {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: calc(1.4rem + 0.5vw);
+    font-size: calc(1.25rem + 0.6vw);
     color: #F5F7FA;
     text-align: center;
   }
-  section div {
+  #cards-container {
     padding-top: 2.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -136,3 +142,33 @@ import descriptions from "../descriptions.json";
     object-fit: contain;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const viewportWidth = document.documentElement.clientWidth;
+    if (viewportWidth > 718) {
+      return;
+    }
+    const cards = document.querySelectorAll('.card-container'); // Adjust selector to match your cards
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          // Optional: unobserve if you only want to trigger once
+          // observer.unobserve(entry.target);
+        } else {
+          // Optional: remove class when out of view
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      threshold: 1.0, // Trigger when 20% of the element is visible
+      rootMargin: '0px' // No margin
+    });
+    
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>

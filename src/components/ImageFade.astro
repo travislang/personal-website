@@ -16,19 +16,12 @@ const { height = '50%' } = Astro.props;
 
 <style>
   section {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     z-index: 20;
-    transition: all 0.5s ease;
-    transition-delay: 0.1s;
-  }
-  section:hover {
-    padding-top: 50%;
   }
   #container {
     position: relative;

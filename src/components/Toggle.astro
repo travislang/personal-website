@@ -13,7 +13,10 @@ import { Icon } from 'astro-icon/components';
 
 <style>
   [data-icon] {
-      font-size: 18px;
+      /* font-size: calc(0.8rem + 1.1vw); */
+  }
+  [data-icon] {
+      font-size: calc(0.5rem + 0.6vw);
   }
   [data-icon="mdi:white-balance-sunny"] {
       color: rgb(236, 218, 25);
@@ -75,21 +78,6 @@ import { Icon } from 'astro-icon/components';
 </style>
 
 <script>
-  // const el = document.getElementById('toggle');
-  // if (el) {
-  //   el.addEventListener('click', function() {
-  //     const circle = document.getElementById('circle');
-  //     if (circle) {
-  //       circle.classList.add('no-hover');
-
-  //       setTimeout(() => {
-  //           circle.classList.remove('no-hover');
-  //       }, 400);
-  //     }
-  //     el.classList.toggle('dark');
-  //     el.classList.toggle('light');
-  //   });
-  // }dark-mode-button
   const darkModeSwitch = document.querySelector("#toggleButton");
 
   if (darkModeSwitch) {
