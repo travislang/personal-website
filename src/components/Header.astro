@@ -12,24 +12,24 @@ import { Icon } from 'astro-icon/components';
         rel='noreferrer'
         href='https://stackoverflow.com/users/10106101/travis-james'
     >
-        <Icon name='cib:stackoverflow' size={30} />
+        <Icon name='cib:stackoverflow' />
     </a>
     <a
         target='_blank'
         rel='noreferrer'
         href='https://www.linkedin.com/in/travis-james-lang/'
     >
-        <Icon name='cib:linkedin-in' size={30} />
+        <Icon name='cib:linkedin-in' />
     </a>
     <a
         target='_blank'
         rel='noreferrer'
         href='https://github.com/travislang'
     >
-        <Icon name='cib:github' size={30} />
+        <Icon name='cib:github' />
     </a>
     <a href='mailto:tlang505@gmail.com'>
-        <Icon name='mdi:at' size={34} />
+        <Icon name='mdi:at' />
     </a>
     <Toggle />
   </div>
@@ -52,5 +52,7 @@ import { Icon } from 'astro-icon/components';
   a:hover {
     color: var(--text-color--hover);
   }
-
+  [data-icon] {
+      font-size: calc(0.8rem + 1.1vw);
+  }
 </style>
