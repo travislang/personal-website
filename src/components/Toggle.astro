@@ -1,0 +1,106 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div id="dark-mode-button" class="dark-mode">
+  <Icon name='mdi:brightness-3' />
+  <label for="toggleButton">
+    <input type="checkbox" id="toggleButton">
+    <div id="switch" />
+  </label>
+  <Icon name='mdi:white-balance-sunny' />
+</div>
+
+<style>
+  [data-icon] {
+      font-size: 18px;
+  }
+  [data-icon="mdi:white-balance-sunny"] {
+      color: rgb(236, 218, 25);
+  }
+  [data-icon="mdi:brightness-3"] {
+      color: rgb(108, 48, 181);
+      margin-top: 2px;
+      transform: scaleX(-1) rotateZ(35deg);
+  }
+  label {
+    display: flex;
+    align-items: center;
+  }
+  input {
+    display: none;
+  }
+  #dark-mode-button {
+    display: flex;
+    align-items: center;
+  }
+  #switch {
+    display: inline-block;
+    height: 20px;
+    width:50px;
+    background-color: hsl(224, 14%, 16%);
+    border-radius: 20px;
+    margin: 0 8px;
+    box-shadow: 1px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all 0.5s;
+  }
+  #switch::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    height: 16px;
+    width: 16px;
+    background-color: hsl(224, 10%, 10%);
+    border-radius: 50%;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  #dark-mode-button input:checked + #switch::after {
+    left: 31px;
+    background-color: #F5F7FA;
+  }
+
+  .dark-mode {
+    background-color: hsl(224, 10%, 10%);
+  }
+
+  .dark-mode #switch {
+    background-color: hsl(224, 10%, 24%);
+  }
+</style>
+
+<script>
+  // const el = document.getElementById('toggle');
+  // if (el) {
+  //   el.addEventListener('click', function() {
+  //     const circle = document.getElementById('circle');
+  //     if (circle) {
+  //       circle.classList.add('no-hover');
+
+  //       setTimeout(() => {
+  //           circle.classList.remove('no-hover');
+  //       }, 400);
+  //     }
+  //     el.classList.toggle('dark');
+  //     el.classList.toggle('light');
+  //   });
+  // }dark-mode-button
+  const darkModeSwitch = document.querySelector("#toggleButton");
+
+  if (darkModeSwitch) {
+    darkModeSwitch.addEventListener("click", function() {
+       const mode = document.querySelector('#dark-mode-button');
+      if (mode) {
+        mode.classList.toggle('dark-mode');
+      }
+      
+      document.documentElement.classList.toggle("dark-mode");
+    });
+  }
+
+</script>

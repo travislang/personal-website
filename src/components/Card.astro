@@ -1,0 +1,165 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  name: string;
+  description: string;
+  link: string;
+  summary: string;
+  summary2: string;
+}
+
+const { name, description, link, summary, summary2 } = Astro.props;
+---
+
+<div id="container">
+  <div id="rainbow-glow">
+  <div id="card">
+    <div id="content">
+      <div id="inner-content">
+         <div id="text">
+          <div id="header">
+            <h2>{name}</h2>
+            <Button link={link} />
+          </div>
+          <p id="description">{description}</p>
+          <p>{summary}</p>
+          <p>{summary2}</p>
+        </div>
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<style>
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #text {
+    font-family: 'Quicksand Variable', sans-serif;
+    color: var(--text-color);
+    font-weight: 300;
+    padding: 20px 20px;
+    width: 100%;
+  }
+  #text h2 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  #description {
+    font-size: 1.2rem;
+    color: #797f87;
+    margin: 0;
+  }
+  p {
+    /* font-size: 1.2rem; */
+    /* color: #F5F7FA; */
+    /* margin: 0; */
+    /* text-transform: uppercase; */
+  }
+  img {
+    width: 70%;
+    height: 70%;
+    margin-bottom: -10px;
+    object-fit: cover;
+    border-radius:25px;
+  }
+  #container {
+    border-radius: 25px;
+    display: inline-block;
+    background-color: var(--card-color);
+    border: 1px solid var(--card-color--border);
+    display: flex;
+    width: 100%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  #rainbow-glow {
+    display:inline-block;
+    flex-grow: 1;
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    &:before {
+      content:'';
+        display:block;
+        position:absolute;
+        visibility: hidden;
+        width:200%;
+        right:-50%;
+        bottom:-50%;
+        top:-50%;
+        background-position:center center;
+        background-image:conic-gradient(from 0 at 50% 50%, transparent 50%, #fff845, #1cc98c, #24cbde, #57a9f7, #bd52f9, #ebb347);
+        filter:blur(150px);
+    }
+  }
+  #rainbow-glow:hover::before {
+    visibility: visible;
+    animation: rainbowGlowRotate 4s linear infinite;
+  }
+  #card {
+    padding:1px;
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:inset 0 0 0 2px var(--card-border--shadow);
+    &:before {
+      content:'';
+      display:block;
+      position:absolute;
+      width:200%;
+      right:-50%;
+      bottom:-50%;
+      top:-50%;
+      visibility: hidden;
+      background-position:center center;
+      background-image:conic-gradient(from 0 at 50% 50%, transparent 50%, #fff845, #1cc98c, #24cbde, #57a9f7, #bd52f9, #ebb347);
+    }
+  }
+  #card:hover::before {
+    visibility: visible;
+    animation: rainbowRotate 4s linear infinite;
+  }
+  #content {
+    margin: 1px;
+    overflow: hidden;
+    background-color: var(--card-color);
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+  }
+  #inner-content {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @keyframes rainbowRotate {
+    0% {
+      transform:rotate(0deg);
+    }
+    100% {
+      transform:rotate(360deg);
+    }
+  }
+
+  @keyframes rainbowGlowRotate {
+    0% {
+      transform:rotate(0deg) scale(0.3);
+    }
+    50% {
+      transform:rotate(180deg) scale(0.3);
+    }
+    100% {
+      transform:rotate(360deg) scale(0.3);
+    }
+  }
+</style>

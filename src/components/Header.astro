@@ -1,0 +1,56 @@
+---
+import Logo from '../components/Logo.astro';
+import Toggle from './Toggle.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<section>
+  <Logo />
+  <div id="container">
+    <a
+        target='_blank'
+        rel='noreferrer'
+        href='https://stackoverflow.com/users/10106101/travis-james'
+    >
+        <Icon name='cib:stackoverflow' size={30} />
+    </a>
+    <a
+        target='_blank'
+        rel='noreferrer'
+        href='https://www.linkedin.com/in/travis-james-lang/'
+    >
+        <Icon name='cib:linkedin-in' size={30} />
+    </a>
+    <a
+        target='_blank'
+        rel='noreferrer'
+        href='https://github.com/travislang'
+    >
+        <Icon name='cib:github' size={30} />
+    </a>
+    <a href='mailto:tlang505@gmail.com'>
+        <Icon name='mdi:at' size={34} />
+    </a>
+    <Toggle />
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    justify-content: space-between;
+  }
+  #container {
+      display: flex;
+      align-items: center;
+  }
+  a {
+    color: var(--text-color);
+    margin-right: 2.5vw;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--text-color--hover);
+  }
+
+</style>

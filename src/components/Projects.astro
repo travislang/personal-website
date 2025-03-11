@@ -1,0 +1,138 @@
+---
+import Card from './Card.astro';
+import { Image } from 'astro:assets';
+import ImageFade from './ImageFade.astro';
+import rivalists from '../assets/rivalists.png';
+import coindock from '../assets/coindock.png';
+import ledger from '../assets/ledger.png';
+import fn from '../assets/fn.png';
+import website from '../assets/website.png';
+import intelliflix from '../assets/intelliflix.png';
+import descriptions from "../descriptions.json";
+---
+
+<section>
+  <h4>a curated collection of my work</h4>
+  <div>
+    <Card
+      name={descriptions.rivalists.title}
+      description={descriptions.rivalists.description}
+      link={descriptions.rivalists.url}
+      summary={descriptions.rivalists.summary}
+      summary2={descriptions.rivalists.summary2}
+    >
+      <ImageFade height="60%">
+        <Image id="rivalists-img" src={rivalists} alt="Rivalists App" />
+      </ImageFade>
+    </Card>
+    <Card
+      name={descriptions.portfolio.title}
+      description={descriptions.portfolio.description}
+      link={descriptions.portfolio.url}
+      summary={descriptions.portfolio.summary}
+      summary2={descriptions.portfolio.summary2}
+    >
+      <ImageFade>
+        <Image id="website-img" src={website} alt="Website App" />
+      </ImageFade>
+    </Card>
+    <Card
+      name={descriptions.ledger.title}
+      description={descriptions.ledger.description}
+      link={descriptions.ledger.url}
+      summary={descriptions.ledger.summary}
+      summary2={descriptions.ledger.summary2}
+    >
+      <ImageFade height="58%">
+        <Image id="ledger-img" src={ledger} alt="Ledger App" />
+      </ImageFade>
+    </Card>
+    <Card
+      name={descriptions.intelliflix.title}
+      description={descriptions.intelliflix.description}
+      link={descriptions.intelliflix.url}
+      summary={descriptions.intelliflix.summary}
+      summary2={descriptions.intelliflix.summary2}
+    >
+      <ImageFade>
+        <Image id="intelliflix-img" src={intelliflix} alt="Intelliflix App" />
+      </ImageFade>
+    </Card>
+    <Card
+      name={descriptions.coindock.title}
+      description={descriptions.coindock.description}
+      link={descriptions.coindock.url}
+      summary={descriptions.coindock.summary}
+      summary2={descriptions.coindock.summary2}
+    >
+      <ImageFade>
+        <Image id="coindock-img" src={coindock} alt="Coindock App" />
+      </ImageFade>
+    </Card>
+    <Card
+      name={descriptions.fn.title}
+      description={descriptions.fn.description}
+      link={descriptions.fn.url}
+      summary={descriptions.fn.summary}
+      summary2={descriptions.fn.summary2}
+    >
+      <ImageFade>
+        <Image id="fn-img" src={fn} alt="FN App" />
+      </ImageFade>
+    </Card>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    color: #F5F7FA;
+    text-align: center;
+  }
+  section div {
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  img {
+    z-index: 10;
+  }
+
+  #rivalists-img {
+    height: 65%;
+    margin-bottom: -10px;
+    object-fit: contain;
+  }
+  #coindock-img {
+    height: 45%;
+    margin-bottom: 1.5rem;
+    object-fit: contain;
+  }
+  #ledger-img {
+    height: 85%;
+    margin-bottom: -100px;
+    object-fit: contain;
+  }
+  #intelliflix-img {
+    height: 43%;
+    margin-bottom: 2rem;
+    object-fit: contain;
+  }
+  #website-img {
+    height: 45%;
+    margin-bottom: 2rem;
+    object-fit: contain;
+  }
+  #fn-img {
+    height: 45%;
+    margin-bottom: 2rem;
+    object-fit: contain;
+  }
+</style>

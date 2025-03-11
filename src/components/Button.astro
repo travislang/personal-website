@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  link: string;
+}
+
+const { link } = Astro.props;
+const isGithub = link.includes('github');
+---
+<div id="button">
+  <a
+    target='_blank'
+    rel='noreferrer'
+    href={link}
+  >
+    {isGithub ? <Icon name='cib:github' size={22} /> : <Icon name='mdi:link-variant' size={22} />}
+  </a>
+</div>
+
+<style>
+  #button {
+    cursor: pointer;
+    z-index: 30;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fcfcfc;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #9e9e9e;
+  }
+</style>

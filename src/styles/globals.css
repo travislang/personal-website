@@ -1,0 +1,19 @@
+:root {
+  /* Light mode colors */
+  --text-color: hsl(224, 10%, 10%);
+  --text-color--hover: #a4a4a4;
+  --background-color: #fcfcfc;
+  --card-color: #fffffff5;
+  --card-color--border: #fffffff5;
+  --card-border--shadow: #fffffff5;
+}
+
+html.dark-mode {
+  /* Dark mode colors */
+  --text-color: #fcfcfc;
+  --text-color--hover: #909090;
+  --background-color: hsl(224, 10%, 10%);
+  --card-color: hsl(224, 22%, 10%);
+  --card-color--border: hsl(224, 10%, 24%);
+  --card-border--shadow: rgba(0,0,0,0.15);
+}

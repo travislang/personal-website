@@ -1,11 +1,20 @@
+---
+import 'modern-normalize/modern-normalize.css';
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource-variable/quicksand';
+
+import '../styles/globals.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark-mode">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Travis Lang</title>
 	</head>
 	<body>
 		<slot />
@@ -13,10 +22,14 @@
 </html>
 
 <style>
-	html,
+	html {
+		background-color: var(--background-color);
+	}
 	body {
-		margin: 0;
 		width: 100%;
 		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 </style>

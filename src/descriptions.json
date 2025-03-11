@@ -1,0 +1,44 @@
+{
+  "rivalists": {
+    "title": "Rivalists",
+    "description": "Ai powered fitness platform",
+    "url": "https://www.rivalists.com/",
+    "summary": "This is a full stack application built using React Native. The application uses a variety of APIs to provide additional data enrichment.  There is custom UI design & animations throughout the application focused on user experience and engagement.  It is currently in beta and is being used by a small group of users.",
+    "summary2": "I worked freelance on this project and was responsible for most of the front end and some back end development."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "This website built using astro",
+    "url": "https://github.com/travislang/personal-portfolio",
+    "summary": "This website was built using Astro, a framework built for speed.  It is a single page application, focusing on showcasing my prior projects and front end skills.",
+    "summary2": "I used a combination of custom CSS, Material UI, and custom SVGs to create a unique design.  Check out the numbers"
+  },
+  "ledger": {
+    "title": "Ledger",
+    "description": "Full feature workout tracking",
+    "url": "https://github.com/travislang/ledger-server",
+    "summary": "This application allows users to create, track, and analyze their weight lifting progress. This app was built using react native for the front end technology and multiple back end libraries. All design was done by me.",
+    "summary2": "I also utilized a full dev ops workflow to support this app, hosting the backend server in a docker container on AWS."
+  },
+  "intelliflix": {
+    "title": "intelliflix",
+    "description": "Sentiment analysis movie rankings",
+    "url": "https://github.com/travislang/movie-sentiment",
+    "summary": "This app uses the twitter/X API to feed related posts through an AI sentimental analysis algorithm to give a rating to each movie.  It them ranks them and will show similar movies based on the user's selection.",
+    "summary2": "This app was built using React Native, GraphQL, Material design concepts, along with the analysis algorithm."
+  },
+  "coindock": {
+    "title": "Coindock",
+    "description": "Real-time crypto monitoring",
+    "url": "https://github.com/travislang/coindock",
+    "summary": "This is a web application that uses websockets to stream real time cryptocurrency prices to the user.",
+    "summary2": "Users can create/delete portfolios, add/remove cryptocurrencies, drag and drop ordering, and set price alerts on specific cryptocurrencies. This is accomplished utalizing the Push API and service workers."
+  },
+  "fn": {
+    "title": "Field Nation",
+    "description": "Field service marketplace",
+    "url": "https://fieldnation.com/",
+    "summary": "I focus on this platform for my full time job.  I work on the full stack and am responsible for building out new features, fixing bugs, and maintaining the current code base including monitoring vital metrics through the use of datadog.",
+    "summary2": "I work with a variety of technologies on a daily basis."
+  }
+}
