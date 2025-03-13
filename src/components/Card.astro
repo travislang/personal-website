@@ -1,5 +1,8 @@
 ---
 import Button from './Button.astro';
+import { Image } from 'astro:assets';
+import lighthouseLight from '../assets/lighthouse-light.png';
+import lighthouseDark from '../assets/lighthouse-dark.png';
 
 interface Props {
   name: string;
@@ -25,7 +28,10 @@ const { name, description, link, summary, summary2, class: className, ...rest } 
           </div>
           <p id="description">{description}</p>
           <p>{summary}</p>
-          <p>{summary2}</p>
+          {summary2 ? <p>{summary2}</p> : <div id="theme-aware-image">
+            <Image id="lighthouse-dark" src={lighthouseDark} alt="Lighthouse score" />
+            <Image id="lighthouse-light" src={lighthouseLight} alt="Lighthouse score" />
+          </div>}
         </div>
         <div id="image-fade">
           <slot />
@@ -65,7 +71,33 @@ const { name, description, link, summary, summary2, class: className, ...rest } 
     height: 70%;
     margin-bottom: -10px;
     object-fit: cover;
-    border-radius:25px;
+    border-radius: 25px;
+  }
+  #theme-aware-image {
+    position: relative;
+    width: 100%;
+  }
+  #lighthouse-light {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: contain;
+    margin: 0;
+  }
+  
+  #lighthouse-dark {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: contain;
+    margin: 0;
+    display: none;
+  }
+  html.dark-mode #lighthouse-dark {
+    display: block;
+  }
+  html.dark-mode #lighthouse-light {
+    display: none;
   }
   #container {
     border-radius: 25px;
@@ -158,10 +190,10 @@ const { name, description, link, summary, summary2, class: className, ...rest } 
     transition-delay: 0.1s;
   }
   #image-fade:not(.in-view):hover {
-    padding-top: 70%;
+    padding-top: 60%;
   }
   .in-view #image-fade {
-    padding-top: 70%;
+    padding-top: 60%;
     transition-delay: 0.2s;
   }
 
