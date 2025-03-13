@@ -10,6 +10,7 @@ import { Icon } from 'astro-icon/components';
     <a
         target='_blank'
         rel='noreferrer'
+        aria-label="view stackoverflow"
         href='https://stackoverflow.com/users/10106101/travis-james'
     >
         <Icon name='cib:stackoverflow' />
@@ -17,6 +18,7 @@ import { Icon } from 'astro-icon/components';
     <a
         target='_blank'
         rel='noreferrer'
+        aria-label="view linkedin"
         href='https://www.linkedin.com/in/travis-james-lang/'
     >
         <Icon name='cib:linkedin-in' />
@@ -24,11 +26,16 @@ import { Icon } from 'astro-icon/components';
     <a
         target='_blank'
         rel='noreferrer'
+        aria-label="view github"
         href='https://github.com/travislang'
     >
         <Icon name='cib:github' />
     </a>
-    <a href='mailto:tlang505@gmail.com'>
+    <a
+      target='_blank'
+      rel='noreferrer'
+      aria-label="email me"
+      href='mailto:tlang505@gmail.com'>
         <Icon name='mdi:at' />
     </a>
     <Toggle />

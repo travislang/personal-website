@@ -12,6 +12,7 @@ const isGithub = link.includes('github');
   <a
     target='_blank'
     rel='noreferrer'
+    aria-label={"view" + isGithub ? ' on github' : ' website'}
     href={link}
   >
     {isGithub ? <Icon name='cib:github' size={22} /> : <Icon name='mdi:link-variant' size={22} />}
